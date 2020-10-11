@@ -1,0 +1,17 @@
+name: Test search
+on: push
+jobs:
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v2
+
+      - name: build container
+        run: |
+          make build
+
+      - name: run test
+        run: |
+          make check
